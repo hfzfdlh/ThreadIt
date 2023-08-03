@@ -11,8 +11,10 @@ router.post('/login',Controller.postLogin)
 router.get('/register',Controller.getRegister)
 router.post('/register',Controller.postRegister)
 router.get('/home/:id',Controller.mainPage)
-
-// router.get('/thread', )
+router.get('/thread/:id', Controller.getThreadDetail )
+// router.post('/thread/:id', Controller.postThread )
+router.get('/edit-profile/:id',Controller.getEditProfile)
+router.post('/edit-profile/:id',Controller.postEditProfile)
 
 
 // // Tes page profiles

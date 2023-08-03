@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasOne(models.UserProfile)
       User.hasMany(models.Post)
+      User.hasMany(models.Comment)
+      User.hasMany(models.Reaction)
+      // User.belongsToMany(models.Post,{through:models.Comment})
+      // User.belongsToMany(models.Post,{through:models.Reaction})
+      // ,foreignKey:models.Comment.UserId
+      // ,foreignKey:models.Reaction.UserId
     }
 
     randomizeInput(){

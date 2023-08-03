@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Reaction.belongsTo(models.User)
+      Reaction.belongsTo(models.Post)
     }
   }
   Reaction.init({

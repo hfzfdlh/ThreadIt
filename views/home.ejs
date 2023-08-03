@@ -24,7 +24,7 @@
             <div class="create">
                 <label class="btn btn-primary" for="create-post">Search</label>
                 <div class="profile-pic">
-                    <img src="<%=data[0].UserProfile.profileImageUrl%>" alt="pic 1" />
+                    <a href="/edit-profile/<%=data[0].randomizeInput()%>"><img src="<%=data[0].UserProfile.profileImageUrl%>" alt="pic 1" /></a>
                 </div>
             </div>
         </div>
@@ -196,7 +196,7 @@
                                 <span><i class="uil uil-share"></i></span>
                             </div> -->
                             <div class="info" style="margin-left:5%">
-                                <a class="btn btn-primary" >Cek Threads</a>
+                                <a class="btn btn-primary" href="/thread/<%=el.randomizeInput()%>">Cek Threads</a>
                                 <!-- <span><i class="uil uil-bookmark"></i></span> -->
                             </div>
                         </div>

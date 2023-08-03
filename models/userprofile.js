@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       UserProfile.belongsTo(models.User)
     }
+
+    get getDate(){
+      return this.dateOfBirth.toISOString().split('T')[0]
+    }
   }
   UserProfile.init({
     name: DataTypes.STRING,

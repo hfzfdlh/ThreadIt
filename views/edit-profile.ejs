@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit Profile | CodingLab</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Edit Profile | ThreadsIt</title>
+    <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 </head>
 
@@ -13,43 +13,43 @@
 
     <!--Edit profile card start-->
     <div class="card">
-        <div class="card-image">
+        <!-- <div class="card-image">
             <img src="1.png" alt="">
-        </div>
+        </div> -->
         <div class="profile-image">
-            <img src="2.png" alt="">
+            <img src="<%=data[0].UserProfile.profileImageUrl%>" alt="">
         </div>
         <div class="card-content">
             <h3>Edit Profile</h3>
-            <form action="#" method="post">
+            <form action="/edit-profile/<%=data[0].randomizeInput()%>" method="post">
                 <div class="input-box">
                     <span class="details">Full Name</span>
-                    <input type="text" name="name" placeholder="Enter your name" required>
+                    <input type="text" name="name" value="<%=data[0].UserProfile.name%>" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Date of Birth</span>
-                    <input type="date" name="dateOfBirth" required>
+                    <input type="date" name="dateOfBirth" value="<%=data[0].UserProfile.getDate%>" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Profile Image URL</span>
-                    <input type="text" name="profileImageUrl" placeholder="Enter your profile image URL" required>
+                    <input type="text" name="profileImageUrl" value="<%=data[0].UserProfile.profileImageUrl%>" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Short Profile</span>
-                    <textarea name="shortProfile" rows="4" placeholder="Enter your short profile" required></textarea>
+                    <textarea name="shortProfile" rows="4"  required><%=data[0].UserProfile.shortProfile%></textarea>
                 </div>
                 <div class="button">
                     <input type="submit" value="Save Changes">
                 </div>
             </form>
         </div>
-        <div class="icons">
+        <!-- <div class="icons">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-youtube"></a>
             <a href="#" class="fab fa-instagram"></a>
             <a href="#" class="fab fa-twitter"></a>
             <a href="#" class="fab fa-whatsapp"></a>
-        </div>
+        </div> -->
     </div>
     <!--Edit profile card end-->
 
