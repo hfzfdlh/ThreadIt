@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "reaction": "👍",
+        "PostId": 1,
+        "UserId": 1
+    },
+    {
+        "id": 2,
+        "reaction": "❤️",
+        "PostId": 2,
+        "UserId": 2
+    },
+    {
+        "id": 3,
+        "reaction": "😮",
+        "PostId": 3,
+        "UserId": 3
+    },
+    {
+        "id": 4,
+        "reaction": "👍",
+        "PostId": 4,
+        "UserId": 1
+    },
+    {
+        "id": 5,
+        "reaction": "😄",
+        "PostId": 5,
+        "UserId": 2
+    },
+    {
+        "id": 6,
+        "reaction": "❤️",
+        "PostId": 6,
+        "UserId": 3
+    },
+    {
+        "id": 7,
+        "reaction": "👍",
+        "PostId": 7,
+        "UserId": 1
+    },
+    {
+        "id": 8,
+        "reaction": "😮",
+        "PostId": 8,
+        "UserId": 2
+    },
+    {
+        "id": 9,
+        "reaction": "👍",
+        "PostId": 9,
+        "UserId": 3
+    },
+    {
+        "id": 10,
+        "reaction": "😄",
+        "PostId": 10,
+        "UserId": 1
+    }
+]

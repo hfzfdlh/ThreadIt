@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "title": "Pengenalan Diri",
+        "content": "Halo semua, perkenalkan nama saya Aria. Saya senang bergabung di platform ini!",
+        "photoUrl": "https://example.com/aria-introduction.jpg",
+        "UserId": 1
+    },
+    {
+        "id": 2,
+        "title": "Pemandangan Indah",
+        "content": "Ini adalah foto pemandangan indah di pantai. Saya suka berlibur di sini.",
+        "photoUrl": "https://example.com/beautiful-beach.jpg",
+        "UserId": 2
+    },
+    {
+        "id": 3,
+        "title": "Hobi Baru",
+        "content": "Saya baru saja mulai belajar bermain gitar. Ini adalah hasil latihan pertama saya!",
+        "photoUrl": "https://example.com/learning-guitar.jpg",
+        "UserId": 3
+    },
+    {
+        "id": 4,
+        "title": "Makanan Favorit",
+        "content": "Ini adalah hidangan sushi favorit saya. Siapa yang suka sushi juga?",
+        "photoUrl": "https://example.com/favorite-sushi.jpg",
+        "UserId": 1
+    },
+    {
+        "id": 5,
+        "title": "Tempat Wisata",
+        "content": "Ini adalah salah satu tempat wisata terkenal di kota kami. Datang dan kunjungi!",
+        "photoUrl": "https://example.com/famous-attraction.jpg",
+        "UserId": 2
+    },
+    {
+        "id": 6,
+        "title": "Kegembiraan",
+        "content": "Saya merayakan ulang tahun saya bersama teman-teman. Ini adalah momen yang menyenangkan!",
+        "photoUrl": "https://example.com/birthday-celebration.jpg",
+        "UserId": 3
+    },
+    {
+        "id": 7,
+        "title": "Salam Kenal",
+        "content": "Halo, perkenalkan nama saya Budi. Saya senang berada di platform sosial ini!",
+        "photoUrl": "https://example.com/budi-greeting.jpg",
+        "UserId": 1
+    },
+    {
+        "id": 8,
+        "title": "Senja di Gunung",
+        "content": "Inilah pemandangan senja yang luar biasa di gunung. Sungguh menakjubkan!",
+        "photoUrl": "https://example.com/mountain-sunset.jpg",
+        "UserId": 2
+    },
+    {
+        "id": 9,
+        "title": "Pelajaran Baru",
+        "content": "Saya sedang belajar bahasa Spanyol. ¡Es divertido aprender un nuevo idioma!",
+        "photoUrl": "https://example.com/learning-spanish.jpg",
+        "UserId": 3
+    },
+    {
+        "id": 10,
+        "title": "Kumpul Keluarga",
+        "content": "Kumpul keluarga adalah momen terindah dalam hidup. Selalu ada kebahagiaan di sana.",
+        "photoUrl": "https://example.com/family-gathering.jpg",
+        "UserId": 1
+    }
+]
