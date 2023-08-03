@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Aria Pratama",
-        "dateOfBirth": "03-12-1988",
+        "dateOfBirth": "1988-12-03",
         "profileImageUrl": "https://example.com/aria-pratama.jpg",
         "shortProfile": "Hai, saya Aria Pratama. Senang bertemu Anda!",
         "UserId": 1
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "name": "Sinta Devi",
-        "dateOfBirth": "21-06-1995",
+        "dateOfBirth": "1995-06-21",
         "profileImageUrl": "https://example.com/sinta-devi.jpg",
         "shortProfile": "Halo, nama saya Sinta Devi. Mari berkenalan!",
         "UserId": 2
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "name": "Budi Santoso",
-        "dateOfBirth": "10-02-1992",
+        "dateOfBirth": "1992-02-10",
         "profileImageUrl": "https://example.com/budi-santoso.jpg",
         "shortProfile": "Salam kenal, saya Budi Santoso. Selamat datang di profil saya!",
         "UserId": 3
@@ -26,7 +26,7 @@
     {
         "id": 4,
         "name": "Rini Wulandari",
-        "dateOfBirth": "17-09-1990",
+        "dateOfBirth": "1990-09-17",
         "profileImageUrl": "https://example.com/rini-wulandari.jpg",
         "shortProfile": "Hai, saya Rini Wulandari. Senang berjumpa dengan Anda!",
         "UserId": 4
@@ -34,7 +34,7 @@
     {
         "id": 5,
         "name": "Dhani Susanto",
-        "dateOfBirth": "08-07-1987",
+        "dateOfBirth": "1987-07-08",
         "profileImageUrl": "https://example.com/dhani-susanto.jpg",
         "shortProfile": "Salam, saya Dhani Susanto. Mari berkenalan lebih jauh!",
         "UserId": 5
@@ -42,7 +42,7 @@
     {
         "id": 6,
         "name": "Maya Purnama",
-        "dateOfBirth": "25-03-1994",
+        "dateOfBirth": "1994-03-25",
         "profileImageUrl": "https://example.com/maya-purnama.jpg",
         "shortProfile": "Halo, saya Maya Purnama. Semoga kita bisa berteman!",
         "UserId": 6
@@ -50,7 +50,7 @@
     {
         "id": 7,
         "name": "Rizki Firmansyah",
-        "dateOfBirth": "12-11-1991",
+        "dateOfBirth": "1991-11-12",
         "profileImageUrl": "https://example.com/rizki-firmansyah.jpg",
         "shortProfile": "Hai, saya Rizki Firmansyah. Selamat datang di profil saya!",
         "UserId": 7
@@ -58,7 +58,7 @@
     {
         "id": 8,
         "name": "Dewi Lestari",
-        "dateOfBirth": "19-04-1989",
+        "dateOfBirth": "1989-04-19",
         "profileImageUrl": "https://example.com/dewi-lestari.jpg",
         "shortProfile": "Salam kenal, nama saya Dewi Lestari. Senang berbincang dengan Anda!",
         "UserId": 8
@@ -66,7 +66,7 @@
     {
         "id": 9,
         "name": "Indra Permana",
-        "dateOfBirth": "07-10-1993",
+        "dateOfBirth": "1993-10-07",
         "profileImageUrl": "https://example.com/indra-permana.jpg",
         "shortProfile": "Hai, saya Indra Permana. Selamat datang di dunia saya!",
         "UserId": 9
@@ -74,7 +74,7 @@
     {
         "id": 10,
         "name": "Siti Rahayu",
-        "dateOfBirth": "14-08-1996",
+        "dateOfBirth": "1996-08-14",
         "profileImageUrl": "https://example.com/siti-rahayu.jpg",
         "shortProfile": "Halo, nama saya Siti Rahayu. Mari berkenalan lebih dekat!",
         "UserId": 10
