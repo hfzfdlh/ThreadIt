@@ -2,61 +2,61 @@
     {
         "id": 1,
         "comment": "Selamat datang di platform ini! Semoga Anda menikmati setiap momennya.",
-        "postId": 1,
-        "userId": 1
+        "PostId": 1,
+        "UserId": 1
     },
     {
         "id": 2,
         "comment": "Wow, foto pantai ini memukau! Siapa yang tidak suka berlibur di pantai?",
-        "postId": 2,
-        "userId": 2
+        "PostId": 2,
+        "UserId": 2
     },
     {
         "id": 3,
         "comment": "Keren! Gitar Anda terlihat memukau. Selamat berlatih dan terus berkarya!",
-        "postId": 3,
-        "userId": 3
+        "PostId": 3,
+        "UserId": 3
     },
     {
         "id": 4,
         "comment": "Sushi adalah hidangan yang menggoda selera! Apa favorit Anda?",
-        "postId": 4,
-        "userId": 1
+        "PostId": 4,
+        "UserId": 1
     },
     {
         "id": 5,
         "comment": "Tempat wisata ini terlihat menyenangkan. Semoga Anda menemukan banyak hal seru di sana!",
-        "postId": 5,
-        "userId": 2
+        "PostId": 5,
+        "UserId": 2
     },
     {
         "id": 6,
         "comment": "Ulang tahun adalah hari istimewa. Selamat merayakannya dengan bahagia!",
-        "postId": 6,
-        "userId": 3
+        "PostId": 6,
+        "UserId": 3
     },
     {
         "id": 7,
         "comment": "Salam kenal, Budi! Saya senang berkenalan dengan Anda di platform ini.",
-        "postId": 7,
-        "userId": 1
+        "PostId": 7,
+        "UserId": 1
     },
     {
         "id": 8,
         "comment": "Senja di gunung selalu memberikan ketenangan. Dijamin suasana hati jadi bahagia!",
-        "postId": 8,
-        "userId": 2
+        "PostId": 8,
+        "UserId": 2
     },
     {
         "id": 9,
         "comment": "¡Buena suerte en tu aventura de aprender español! Disfrútalo mucho.",
-        "postId": 9,
-        "userId": 3
+        "PostId": 9,
+        "UserId": 3
     },
     {
         "id": 10,
         "comment": "Kumpul keluarga adalah momen terindah. Selamat menikmati kebahagiaan bersama orang terkasih.",
-        "postId": 10,
-        "userId": 1
+        "PostId": 10,
+        "UserId": 1
     }
 ]
