@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 
     randomizeInput(){
       let strArr = this.title.split('')
-      let resKey ='' +this.id
+      let resKey ='' +this.id+'_'
       strArr.forEach(el=>{
         resKey = resKey + el+ Math.floor(Math.random() * 10)
       })
@@ -32,13 +32,26 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static passBreaker(value){
-     let postId = Number(value[0])
+     let postId =Number(value.split('_')[0])
       return postId
     }
   }
   Post.init({
-    title: DataTypes.STRING,
-    content: DataTypes.TEXT,
+    title: {
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:{
+          msg:'title not Empty'
+        }
+      }},
+    content: {type:DataTypes.TEXT,
+      allowNull:false,
+      validate:{
+        notEmpty:{
+          msg:'content not Empty'
+        }
+      }},
     photoUrl: DataTypes.STRING,
     UserId: DataTypes.INTEGER
   }, {

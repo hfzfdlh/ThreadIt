@@ -5,24 +5,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Responsive Registration Form | CodingLab</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     
     <div class="container">
-        <% console.log(errorPass)%>
-    <% if(Object.keys(errorPass).length>0){%>
-        <p><%=errorPass.errorPass%></p>
-    <%}%>
+       
         <div class="title">Registration</div>
+        <% console.log(errorPass)%>
+        <% if(Object.keys(errorPass).length>0){%>
+            <h4 style="color:red"><%=errorPass.errorPass%></h4>
+        <%}%>
         <div class="content">
             <form action="/register" method="post">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Full Name</span>
-                        <input type="text" name="name" placeholder="Enter your name" required>
+                        <input type="text" name="name" placeholder="Enter your name" required >
                     </div>
                     <div class="input-box">
                         <span class="details">Date of Birth</span>

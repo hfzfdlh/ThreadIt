@@ -16,11 +16,11 @@
 <body>
     <nav>
         <div class="container">
-            <h2 class="logo">Threads!t</h2>
+            <a href='/home/<%=data.randomizeInput()%>'><h2 class="logo">Threads!t</h2></a>
             
             <div class="create">
                 <div class="profile-pic">
-                    <a href="/edit-profile/<%=data.User.randomizeInput()%>"><img src="<%=data.User.UserProfile.profileImageUrl%>" alt="pic 1" /></a>
+                    <a href="/edit-profile/<%=data.randomizeInput()%>"><img src="<%=data.UserProfile.profileImageUrl%>" alt="pic 1" /></a>
                 </div>
             </div>
         </div>
@@ -171,23 +171,23 @@
                         </div>
                         <div class="user">
                             <div class="profile-pic">
-                                <img src="<%=data.User.UserProfile.profileImageUrl%>" alt="">
+                                <img src="<%=threadData.User.UserProfile.profileImageUrl%>" alt="">
                             </div>
                             <div class="info">
-                                <h3><%=data.User.UserProfile.name%></h3>
+                                <h3><%=threadData.User.UserProfile.name%></h3>
                   
                             </div>
                             <!-- <SPAN class="edit"><i class="uil uil-ellipsis-h"></i></SPAN> -->
                         </div>
 
                         <div class="info">
-                            <h1 style="margin-left:5%"><%=data.title%></h1>
+                            <h1 style="margin-left:5%"><%=threadData.title%></h1>
                         </div>
                         <div class="info">
-                            <p style="margin-left:5%"><%=data.content%></p>
+                            <p style="margin-left:5%"><%=threadData.content%></p>
                         </div>
                         <div class="info" style="margin-left:5%">
-                            <img src="<%=data.photoUrl%>"></img>
+                            <img src="<%=threadData.photoUrl%>"></img>
                         </div>
 
                         <div class="action-button">
@@ -217,14 +217,14 @@
                         <!-- <div class="comments text-muted">View all 130 comments</div> -->
                     </div>
 
-                    <form class="create-post" action="/thread/<%=data.randomizeInput()%>" >
+                    <form class="create-post" action="/thread/<%=data.randomizeInput()%>/<%=threadData.randomizeInput()%>" >
                         <!-- <div class="profile-pic">
                             <img src="images/profile-8.jpg" alt="">
                         </div> -->
                         <input type="text" placeholder="Give Comment" id="create-post" name="comment">
                         <input type="submit" value="Comment" class="btn btn-primary">
                     </form>
-                    <form class="create-post" action="/thread/<%=data.randomizeInput()%>" >
+                    <form class="create-post" action="/thread/<%=data.randomizeInput()%>/<%=threadData.randomizeInput()%>" >
                         <!-- <div class="profile-pic">
                             <img src="images/profile-8.jpg" alt="">
                         </div> -->

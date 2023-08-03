@@ -36,7 +36,6 @@ module.exports = (sequelize, DataTypes) => {
     static passBreaker(value){
      let userNameStr=''
      for (let i = 0;i<value.length;i=i+2){
-      console.log(i)
       userNameStr +=value[i]
      }
       return userNameStr
@@ -44,9 +43,33 @@ module.exports = (sequelize, DataTypes) => {
 
   }
   User.init({
-    email: DataTypes.STRING,
-    userName: DataTypes.STRING,
-    hashPassword: DataTypes.STRING
+    email: {
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:{
+          msg:'email not Empty'
+        }
+      }
+    },
+    userName: {
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:{
+          msg:'username not Empty'
+        }
+      }
+    },
+    hashPassword: {
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:{
+          msg:'password not Empty'
+        }
+      }
+    }
   }, {
     hooks:{
       beforeCreate:(user)=>{

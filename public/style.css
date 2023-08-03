@@ -32,6 +32,12 @@ body {
   border-bottom: 1px solid silver;
 }
 
+.center h4 {
+  text-align: center;
+  padding: 20px 0;
+
+}
+
 .center form {
   padding: 0 40px;
   box-sizing: border-box;

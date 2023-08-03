@@ -17,6 +17,11 @@
 }
 
 
+.middle h4 {
+    text-align: center;
+    padding: 20px 0;
+  
+  }
 *,*::before,*::after{
     margin: 0;
     padding: 0;

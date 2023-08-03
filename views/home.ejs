@@ -16,13 +16,20 @@
 <body>
     <nav>
         <div class="container">
-            <h2 class="logo">Threads!t</h2>
+            <a href='/home/<%=data[0].randomizeInput()%>'><h2 class="logo">Threads!t</h2></a>
+            <form class="create" action="/home/<%=data[0].randomizeInput()%>">
+                <!-- <div class="profile-pic">
+                    <img src="images/profile-8.jpg" alt="">
+                </div> -->
+                <input type="text" placeholder="Search Thread ?" id="create-post" class="search-bar" name="search">
+                <input type="submit" value="Search" class="btn btn-primary">
+            </form>
             <div class="search-bar">
-                <i class="uil uil-search"></i>
-                <input type="search" placeholder="Search for Threads" />
+                <!-- <i class="uil uil-search"></i>
+                <input type="search" placeholder="Search for Threads" /> -->
             </div>
             <div class="create">
-                <label class="btn btn-primary" for="create-post">Search</label>
+                <!-- <label class="btn btn-primary" for="create-post">Search</label> -->
                 <div class="profile-pic">
                     <a href="/edit-profile/<%=data[0].randomizeInput()%>"><img src="<%=data[0].UserProfile.profileImageUrl%>" alt="pic 1" /></a>
                 </div>
@@ -159,12 +166,26 @@
                         <p class="name">Christy Kahea</p>
                     </div> -->
                 <!-- </div> -->
-
-                <form class="create-post">
+                <form class="create" action="/home/<%=data[0].randomizeInput()%>">
+                    <!-- <div class="profile-pic">
+                        <img src="images/profile-8.jpg" alt="">
+                    </div> -->
+                    <select name="sort">
+                        <option value="ASC">Oldest</option>
+                        <option value="DESC">Newest</option>
+                    </select>
+                    <input type="submit" value="sort" class="btn" >
+                </form>
+                <% console.log(errorPass)%>
+                <% if(errorPass){%>
+                    <h4 style="color:red"><%=errorPass%></h4>
+                <%}%>
+                <form class="create-post" action="/home/add/<%=data[0].randomizeInput()%>">
                     <div class="profile-pic">
                         <img src="images/profile-8.jpg" alt="">
                     </div>
-                    <input type="text" placeholder="What's on your mind ?" id="create-post">
+                    <input type="text" placeholder="Give it a title" id="create-post" name="title">
+                    <input type="text" placeholder="What's on your mind ?" id="create-post" name="content">
                     <input type="submit" value="Post" class="btn btn-primary">
                 </form>
 
@@ -196,7 +217,10 @@
                                 <span><i class="uil uil-share"></i></span>
                             </div> -->
                             <div class="info" style="margin-left:5%">
-                                <a class="btn btn-primary" href="/thread/<%=el.randomizeInput()%>">Cek Threads</a>
+                                <a class="btn btn-primary" href="/thread/<%=data[0].randomizeInput()%>/<%=el.randomizeInput()%>">Check Threads</a>
+                                <% if(el.UserId === data[0].id){%>
+                                    <a class="btn btn-primary" href="/home/delete/<%=data[0].randomizeInput()%>/<%=el.randomizeInput()%>">Delete Threads</a>
+                               <% }%>
                                 <!-- <span><i class="uil uil-bookmark"></i></span> -->
                             </div>
                         </div>

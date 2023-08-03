@@ -1,5 +1,6 @@
 const {User,UserProfile,Post,Comment,Reaction, Sequelize} = require('../models')
 const {checkPass} = require('../helper/helper')
+const { Op } = require("sequelize");
 
 
 class Controller{
@@ -11,11 +12,31 @@ class Controller{
     static mainPage(req,res){
         // res.render('home')
         // console.log('req.params',req.params)
+        const{search,sort,errorPass} = req.query
         const id = req.params.id
-
+        console.log('search',search)
         const userName = User.passBreaker(id)
         // console.log(userName)
+
+        let options = {
+            include:[
+                {model:User,
+                include:{model:UserProfile}}
+            
+        ]
         
+        }
+        
+        if(search){
+            options.where={
+                title:{
+                [Op.iLike]:`%${search}%`
+                }
+            }
+        }
+        if(sort){
+            options.order=[["createdAt",sort]]
+        }
         let userData
 
         User.findAll({include:UserProfile,
@@ -24,18 +45,97 @@ class Controller{
         }})
         .then(data=>{
             userData = data
-            return Post.findAll({
-                include:[
-                    {model:User,
-                    include:{model:UserProfile}}
-                
-            ],
-            order:[["createdAt","DESC"]]
-            })
+            return Post.findAll(options)
         })
         .then(post=>{
-            // console.log(post[0].User.UserProfile)
-            res.render('home',{data:userData,post})
+            console.log('post',post)
+            res.render('home',{data:userData,post,errorPass})
+        })
+        .catch(err=>{
+            if(err.name="SequelizeValidationError"){
+                errorPass = err.errors.map(el=>el.message)
+                res.render('home',{data:userData,post,errorPass})
+            }else{
+                res.send(error)
+            }
+        })
+
+    }
+
+    static mainAddPage(req,res){
+        // res.render('home')
+        // console.log('req.params',req.params)
+        const{title,content} = req.query
+        const id = req.params.id
+        const userName = User.passBreaker(id)
+
+        let options = {
+            include:[
+                {model:User,
+                include:{model:UserProfile}},
+             ],
+             order:[["createdAt","DESC"]]
+        
+        }
+        
+        let userData
+        
+
+
+        User.findAll({include:UserProfile,
+        where:{
+            userName
+        }})
+        .then(data=>{
+            console.log('data',data)
+            userData = data
+            return Post.create({title,content,UserId:data[0].id})
+        })
+        .then(post=>{
+            return Post.findAll(options)
+
+        }).then(post=>{
+            console.log(post)
+            res.redirect(`/home/${id}`)
+        })
+        .catch(err=>{
+            if(err.name="SequelizeValidationError"){
+                let errorPass = err.errors.map(el=>el.message)
+                res.redirect(`/home/${id}?errorPass=${errorPass}`)
+            }else{
+                res.send(error)
+            }
+        })
+
+    }
+
+    static deleteThread(req,res){
+        // res.render('home')
+        // console.log('req.params',req.params)
+        const {userId,postId} = req.params
+        
+        let idPost = Post.passBreaker(postId)
+        const userName = User.passBreaker(userId)
+        console.log(postId,userName)
+
+        // let options = {
+        //     include:[
+        //         {model:User,
+        //         include:{model:UserProfile}},
+        //      ],
+        //      order:[["createdAt","DESC"]]
+        
+        // }
+        
+        // let userData
+
+
+        Post.destroy({where:{
+                id:idPost
+            }})
+        .then(post=>{
+            console.log(post)
+            res.redirect(`/home/${userId}`)
         })
         .catch(err=>{
             res.send(err)
@@ -47,6 +147,7 @@ class Controller{
         const {email, password} = req.body
 
         let loginFailed
+
         User.findAll({where:{
             email
         }})
@@ -71,7 +172,13 @@ class Controller{
             }
         })
         .catch(err=>{
-            res.send(err)
+            if(err.name="SequelizeValidationError"){
+                loginFailed = err.errors.map(el=>el.message)
+                res.render('login',{loginFailed})
+            }else{
+                res.send(error)
+            }
+            
         })
     }
 
@@ -80,10 +187,11 @@ class Controller{
         res.render('register',{errorPass})
     }
 
+
     static postRegister(req,res){
         let {name,dateOfBirth,profileImageUrl,shortProfile,email,userName,password,confirmPass} = req.body
         console.log(req.body)
-        let err 
+        let err
         if (password !== confirmPass){
             err = ['Password tidak sama, ulangi kembali']
             res.redirect(`/register?errorPass=${err}`)
@@ -97,8 +205,13 @@ class Controller{
             .then(()=>{
                 res.redirect('login')
             })
-            .catch(err=>{
-                res.send(err)
+            .catch(error=>{
+                if(error.name="SequelizeValidationError"){
+                    let errorArr = error.errors.map(el=>el.message)
+                    res.redirect(`/register?errorPass=${errorArr}`)
+                }else{
+                    res.send(error)
+                }
             })
         }
     }
@@ -153,25 +266,35 @@ class Controller{
     static getThreadDetail(req,res){
         const {comment,reaction} = req.query
         // console.log('comment',comment)
-        const id = req.params.id
-        const postId = Post.passBreaker(id)
-        // console.log(postId,id)
+        let {userId,postId} = req.params
+         postId = Post.passBreaker(postId)
+         userId = User.passBreaker(userId)
+        console.log(postId,userId)
        
        
         function fillPage(postId){
             let userData
+            let threadData
             let commentList
             let reactionList
-            Post.findByPk(postId,{
-                include:{
-                    model:User,
-                    include:{
-                        model:UserProfile
-                    }
-                }}) 
+            User.findOne({include:UserProfile,where:{
+                userName:userId
+            }}) 
+                .then(data=>{
+                    console.log(data)
+                    userData = data
+                    return Post.findByPk(postId,{
+                        include:{
+                            model:User,
+                            include:{
+                                model:UserProfile
+                            }
+                        }
+                })
+                })
                 .then(data=>{
                     // console.log(data.User)
-                    userData = data
+                    threadData = data
                     return Post.findByPk(postId,{
                         include:{
                             model:Comment,
@@ -202,7 +325,7 @@ class Controller{
                 })
                 .then(reactDistinct=>{
          
-                    res.render('thread',{data:userData,comment:commentList,reaction:reactionList,reactDistinct})
+                    res.render('thread',{data:userData,threadData,comment:commentList,reaction:reactionList,reactDistinct})
     
                 })
                 .catch(err=>{
@@ -211,17 +334,17 @@ class Controller{
         }
 
         if (comment){
-            Post.findByPk(postId,{include:User})
+            User.findOne({where:{userName:userId}})
             .then(data=>{
-                Comment.create({comment, PostId:postId,UserId:data.User.id})
+                Comment.create({comment, PostId:postId,UserId:data.id})
             }).then(data=>{
                 console.log(data)
                 fillPage(postId)
             })
         } else if(reaction){
-            Post.findByPk(postId,{include:User})
+            User.findOne({where:{userName:userId}})
             .then(data=>{
-                Reaction.create({reaction, PostId:postId,UserId:data.User.id})
+                Reaction.create({reaction, PostId:postId,UserId:data.id})
             }).then(data=>{
                 console.log(data)
                 fillPage(postId)

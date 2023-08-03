@@ -9,16 +9,18 @@
 </head>
 
 <body>
-    <% if (loginFailed){%>
-        <p><%=loginFailed%></p>
-
-    <%}%>
+    <% console.log (loginFailed)%>
+  
     <p></p>
     <div class="center">
         <h1>Login</h1>
+        <% if (loginFailed){%>
+            <h4 style="color:red"><%=loginFailed%></h4>
+    
+        <%}%>
         <form method="post" action="/login"> <!-- Tambahkan atribut action dengan rute '/login' -->
             <div class="txt_field">
-                <input type="email"  required name="email"> <!-- Tambahkan atribut name dengan 'userName' -->
+                <input type="email" required  name="email"> <!-- Tambahkan atribut name dengan 'userName' -->
                 <span></span>
                 <label>Email</label>
             </div>
