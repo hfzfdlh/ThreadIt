@@ -3,11 +3,31 @@ const Controller = require('../controller/controller')
 const router = require('express').Router()
 
 
-// Rute untuk halaman login
+
 
 router.get('/',Controller.getLogin);
 router.get('/login',Controller.getLogin)
 router.post('/login',Controller.postLogin)
+router.get('/register',Controller.getRegister)
+router.post('/register',Controller.postRegister)
+router.get('/home/:id',Controller.mainPage)
+
+// router.get('/thread', )
+
+
+// // Tes page profiles
+// router.get('/profile', (req, res) => {
+//     res.render('profile');
+// });
+
+// // Tes edit profiles
+// router.get('/edit-profile', (req, res) => {
+//     res.render('edit-profile');
+// });
+
+// Tes page threads
+;
+
 
 // router.get('/login', (req, res) => {
 //     res.render('login');
@@ -36,9 +56,6 @@ router.post('/login',Controller.postLogin)
 // });
 
 // Rute untuk halaman utama setelah berhasil login
-router.get('/home', (req, res) => {
-    res.render('home');
-});
 
 
 
