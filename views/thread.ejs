@@ -20,7 +20,7 @@
             
             <div class="create">
                 <div class="profile-pic">
-                    <a href="/edit-profile/<%=data.randomizeInput()%>"><img src="<%=data.UserProfile.profileImageUrl%>" alt="pic 1" /></a>
+                    <a href="/edit-profile/<%=data.randomizeInput()%>"><img src="/static/<%=data.UserProfile.profileImageUrl%>" alt="pic 1" /></a>
                 </div>
             </div>
         </div>
@@ -171,7 +171,7 @@
                         </div>
                         <div class="user">
                             <div class="profile-pic">
-                                <img src="<%=threadData.User.UserProfile.profileImageUrl%>" alt="">
+                                <img src="/static/<%=threadData.User.UserProfile.profileImageUrl%>" alt="">
                             </div>
                             <div class="info">
                                 <h3><%=threadData.User.UserProfile.name%></h3>
@@ -250,7 +250,7 @@
 
                     <div class="user">
                         <div class="profile-pic">
-                            <img src="<%=el.User.UserProfile.profileImageUrl%>" alt="">
+                            <img src="/static/<%=el.User.UserProfile.profileImageUrl%>" alt="">
                         </div>
                         <div class="info">
                             <h3><%=el.User.UserProfile.name%></h3>

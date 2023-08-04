@@ -1,11 +1,14 @@
 const {User,UserProfile,Post,Comment,Reaction, Sequelize} = require('../models')
 const {checkPass} = require('../helper/helper')
 const { Op } = require("sequelize");
+// const { uploadProfile } = require('../helper/helper');
 
-
+let session
 class Controller{
     static getLogin(req,res){
         let loginFailed
+        session = req.session
+
         res.render('login',{loginFailed})
     }
 
@@ -14,7 +17,7 @@ class Controller{
         // console.log('req.params',req.params)
         const{search,sort,errorPass} = req.query
         const id = req.params.id
-        console.log('search',search)
+        // console.log('search',search)
         const userName = User.passBreaker(id)
         // console.log(userName)
 
@@ -48,7 +51,7 @@ class Controller{
             return Post.findAll(options)
         })
         .then(post=>{
-            console.log('post',post)
+            // console.log('post',post)
             res.render('home',{data:userData,post,errorPass})
         })
         .catch(err=>{
@@ -87,7 +90,7 @@ class Controller{
             userName
         }})
         .then(data=>{
-            console.log('data',data)
+            // console.log('data',data)
             userData = data
             return Post.create({title,content,UserId:data[0].id})
         })
@@ -95,7 +98,7 @@ class Controller{
             return Post.findAll(options)
 
         }).then(post=>{
-            console.log(post)
+            // console.log(post)
             res.redirect(`/home/${id}`)
         })
         .catch(err=>{
@@ -116,7 +119,7 @@ class Controller{
         
         let idPost = Post.passBreaker(postId)
         const userName = User.passBreaker(userId)
-        console.log(postId,userName)
+        // console.log(postId,userName)
 
         // let options = {
         //     include:[
@@ -134,7 +137,7 @@ class Controller{
                 id:idPost
             }})
         .then(post=>{
-            console.log(post)
+            // console.log(post)
             res.redirect(`/home/${userId}`)
         })
         .catch(err=>{
@@ -148,6 +151,9 @@ class Controller{
 
         let loginFailed
 
+        session=req.session;
+        session.userid=req.body.email;
+
         User.findAll({where:{
             email
         }})
@@ -160,7 +166,7 @@ class Controller{
                 }
 
                 if (stat){
-                    console.log('stat',stat)
+                    // console.log('stat',stat)
                      res.redirect(`/home/${data[0].randomizeInput()}`)
                 } else{
                     loginFailed = 'Wrong Password'
@@ -189,8 +195,11 @@ class Controller{
 
 
     static postRegister(req,res){
-        let {name,dateOfBirth,profileImageUrl,shortProfile,email,userName,password,confirmPass} = req.body
-        console.log(req.body)
+        let {name,dateOfBirth,shortProfile,email,userName,password,confirmPass} = req.body
+        let profileImageUrl = 'profileImageUrl/'+req.file.filename
+
+
+       
         let err
         if (password !== confirmPass){
             err = ['Password tidak sama, ulangi kembali']
@@ -207,6 +216,9 @@ class Controller{
             })
             .catch(error=>{
                 if(error.name="SequelizeValidationError"){
+                    let errorArr = error.errors.map(el=>el.message)
+                    res.redirect(`/register?errorPass=${errorArr}`)
+                }else if(error.name="SequelizeUniqueConstraintError"){
                     let errorArr = error.errors.map(el=>el.message)
                     res.redirect(`/register?errorPass=${errorArr}`)
                 }else{
@@ -254,7 +266,7 @@ class Controller{
                 })
             })
             .then((updateData)=>{
-                console.log(updateData)
+                // console.log(updateData)
                 res.redirect(`/home/${userData[0].randomizeInput()}`)
             })
             .catch(err=>{
@@ -269,7 +281,7 @@ class Controller{
         let {userId,postId} = req.params
          postId = Post.passBreaker(postId)
          userId = User.passBreaker(userId)
-        console.log(postId,userId)
+        // console.log(postId,userId)
        
        
         function fillPage(postId){
@@ -329,7 +341,7 @@ class Controller{
     
                 })
                 .catch(err=>{
-                    console.log(err)
+                    // console.log(err)
                     res.send(err)})
         }
 
@@ -338,7 +350,7 @@ class Controller{
             .then(data=>{
                 Comment.create({comment, PostId:postId,UserId:data.id})
             }).then(data=>{
-                console.log(data)
+                // console.log(data)
                 fillPage(postId)
             })
         } else if(reaction){
@@ -346,16 +358,28 @@ class Controller{
             .then(data=>{
                 Reaction.create({reaction, PostId:postId,UserId:data.id})
             }).then(data=>{
-                console.log(data)
+                // console.log(data)
                 fillPage(postId)
             })
         }
         else{
             fillPage(postId)
         }
+    }
 
-       
-        
+    static logout(req,res){
+   
+        if (req.session) {
+            // delete session object
+            req.session.destroy(function (err) {
+              if (err) {
+                return next(err);
+              } else {
+                return res.redirect('/');
+              }
+            });
+          }
+          
     }
 }
 

@@ -1,15 +1,18 @@
-const Controller = require('../controller/controller')
+const Controller = require('../controller/controller');
+const { uploadProfile } = require('../helper/helper');
 
 const router = require('express').Router()
 
 
 
 
+
 router.get('/',Controller.getLogin);
 router.get('/login',Controller.getLogin)
+router.get('/logout',Controller.logout)
 router.post('/login',Controller.postLogin)
 router.get('/register',Controller.getRegister)
-router.post('/register',Controller.postRegister)
+router.post('/register',uploadProfile,Controller.postRegister)
 router.get('/home/:id',Controller.mainPage)
 router.get('/home/add/:id',Controller.mainAddPage)
 router.get('/home/delete/:userId/:postId',Controller.deleteThread)

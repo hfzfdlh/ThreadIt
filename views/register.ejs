@@ -19,7 +19,7 @@
             <h4 style="color:red"><%=errorPass.errorPass%></h4>
         <%}%>
         <div class="content">
-            <form action="/register" method="post">
+            <form action="/register" enctype="multipart/form-data"  method="post">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Full Name</span>
@@ -30,8 +30,8 @@
                         <input type="date" name="dateOfBirth" required>
                     </div>
                     <div class="input-box">
-                        <span class="details">Profile Image URL</span>
-                        <input type="text" name="profileImageUrl" placeholder="Enter your profile image URL" required>
+                        <span class="details">Upload Image</span>
+                        <input type="file" name="profileImageUrl" placeholder="Enter your profile image" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Short Profile</span>

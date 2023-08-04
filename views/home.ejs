@@ -31,8 +31,10 @@
             <div class="create">
                 <!-- <label class="btn btn-primary" for="create-post">Search</label> -->
                 <div class="profile-pic">
-                    <a href="/edit-profile/<%=data[0].randomizeInput()%>"><img src="<%=data[0].UserProfile.profileImageUrl%>" alt="pic 1" /></a>
+                    <a href="/edit-profile/<%=data[0].randomizeInput()%>"><img src="/static/<%=data[0].UserProfile.profileImageUrl%>" alt="pic 1" /></a>
+                    
                 </div>
+                <a href="/logout" class="btn btn-primary">Logout</a>
             </div>
         </div>
     </nav>
@@ -197,7 +199,7 @@
                         </div>
                         <div class="user">
                             <div class="profile-pic">
-                                <img src="<%=el.User.UserProfile.profileImageUrl%>" alt="">
+                                <img src="/static/<%=el.User.UserProfile.profileImageUrl%>" alt="">
                             </div>
                             <div class="info">
                                 <h3><%=el.User.UserProfile.name%></h3>

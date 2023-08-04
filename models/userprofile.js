@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
 },
     profileImageUrl: {
       type:DataTypes.STRING,
-    allowNull:false,
+    allowNull:true,
     validate:{
       notEmpty:{
         msg:'profile image not Empty'
